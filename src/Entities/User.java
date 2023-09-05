@@ -1,22 +1,18 @@
 package Entities;
 
-import Application.Seat;
-
 public class User {
 
 	private String name;
 	private String email;
 	private String cpf;
-	private Seat seat;
 
 	public User() {
 	}
 
-	public User(String name, String email, String cpf, Seat seat) {
+	public User(String name, String email, String cpf) {
 		this.name = name;
 		this.email = email;
 		this.cpf = cpf;
-		this.seat = seat;
 	}
 
 	public String getName() {
@@ -43,13 +39,4 @@ public class User {
 		this.cpf = cpf;
 	}
 
-	public Seat getSeat() {
-		return seat;
-	}
-
-	public void setSeat(Seat seat) {
-		this.seat = seat;
-	}
-
-	
 }
