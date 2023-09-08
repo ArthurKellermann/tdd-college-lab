@@ -1,5 +1,6 @@
 package Entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cinema {
@@ -15,6 +16,7 @@ public class Cinema {
 	public Cinema() {
 		this.seats = new User[NUMBER_ROW][NUMBER_COLUMNS];
 		this.seatsUI = new char[NUMBER_ROW][NUMBER_COLUMNS];
+		this.users = new ArrayList<>();
 
 		for (int l = 0; l < seatsUI.length; l++) {
 			for (int c = 0; c < seatsUI.length; c++) {
@@ -23,10 +25,11 @@ public class Cinema {
 		}
 	}
 
-	public void chooseSeat(char row, int column, User client) {
+	public boolean chooseSeat(char row, int column, User client) {
 		int rowNumber = parseCharToInt(row);
 		seats[rowNumber][column] = client;
 		seatsUI[rowNumber][column - 1] = 'X';
+		return true;
 
 	}
 
@@ -50,10 +53,10 @@ public class Cinema {
 			}
 			System.out.println(" ");
 		}
-		
+
 		System.out.println();
 		System.out.println("---------------- SCREEN ----------------");
-	
+
 	}
 
 }
