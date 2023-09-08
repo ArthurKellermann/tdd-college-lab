@@ -13,7 +13,7 @@ class TestCinema {
 	@Test
 	void test() {
 		Cinema cinema = new Cinema();
-		assertEquals(cinema.parseChatToInt('A'), 0);
+		assertEquals(cinema.parseCharToInt('B'), 1);
 	}
 
 }
