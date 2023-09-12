@@ -1,14 +1,10 @@
 package Entities;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Cinema {
 
 	private static final int NUMBER_ROW = 12;
 	private static final int NUMBER_COLUMNS = 14;
 
-	private List<User> users;
 	private User seats[][];
 	private char seatsUI[][];
 	char listLetters[] = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L' };;
@@ -16,7 +12,6 @@ public class Cinema {
 	public Cinema() {
 		this.seats = new User[NUMBER_ROW][NUMBER_COLUMNS];
 		this.seatsUI = new char[NUMBER_ROW][NUMBER_COLUMNS];
-		this.users = new ArrayList<>();
 
 		for (int l = 0; l < seatsUI.length; l++) {
 			for (int c = 0; c < seatsUI.length; c++) {

@@ -33,7 +33,7 @@ public class Main {
 		String seatArray[] = seat.split("");
 		
 		char row = seatArray[0].charAt(0);
-		int column = Integer.parseInt(seatArray[1]);
+		int column = Integer.parseInt((seatArray[2] != null) ? (seatArray[1] + seatArray[2]) : seatArray[1]);
 				
 		cinema.chooseSeat(row, column, user);
 		System.out.println();
