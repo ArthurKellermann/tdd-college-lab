@@ -1,5 +1,7 @@
 package Entities;
 
+import java.util.InputMismatchException;
+
 public class User {
 
 	private String name, email, cpf;
@@ -24,6 +26,14 @@ public class User {
 		return true;
 	}
 
+	public boolean isEmail(String email) {
+		if (email.contains("@") == false) {
+			return false;
+		}
+
+		return true;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -36,8 +46,14 @@ public class User {
 		return email;
 	}
 
-	public void setEmail(String email) {
+	public boolean setEmail(String email) {
+		if (isEmail(email) == false) {
+			throw new InputMismatchException("Invalid cpf");
+		}
+
 		this.email = email;
+
+		return true;
 	}
 
 	public String getcpf() {
@@ -46,7 +62,7 @@ public class User {
 
 	public boolean setcpf(String cpf) {
 		if (isCpf(cpf) == false) {
-			return false;
+			throw new InputMismatchException("Invalid cpf");
 		}
 
 		this.cpf = cpf;

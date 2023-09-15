@@ -1,5 +1,7 @@
 package Entities;
 
+import java.util.InputMismatchException;
+
 public class Seat {
 
 	private double price;
@@ -34,7 +36,7 @@ public class Seat {
 		if (code != null && code.length > 0) {
 			return code[0].charAt(0);
 		} else {
-			throw new IllegalStateException("Seat code is empty.");
+			throw new InputMismatchException("Seat code is empty.");
 		}
 	}
 
