@@ -7,7 +7,7 @@ public class Cinema {
 
 	private User[][] seats;
 	private char[][] seatsUI;
-	private char[] listLetters = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L' };;
+	private char[] listLetters = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L' };
 
 	public Cinema() {
 		this.seats = new User[NUMBER_ROWS][NUMBER_COLUMNS];
@@ -39,20 +39,20 @@ public class Cinema {
 	}
 
 	public String numberOfSeats() {
-		int numberOfSeatsOccupied = 0;
-		int numberOfSeatsFree = 0;
+		int numberOfOccupiedSeats = 0;
+		int numberOfFreeSeats = 0;
 
 		for (int l = 0; l < seatsUI.length; l++) {
 			for (int c = 0; c < seatsUI[l].length; c++) {
 				if (seatsUI[l][c] == 'X') {
-					numberOfSeatsOccupied++;
+					numberOfOccupiedSeats++;
 				} else if (seatsUI[l][c] == '▢') {
-					numberOfSeatsFree++;
+					numberOfFreeSeats++;
 				}
 			}
 		}
 
-		return ("Number of seats occupied: " + numberOfSeatsOccupied + "\nNumber of seats free: " + numberOfSeatsFree);
+		return ("Number of occupied seats: " + numberOfOccupiedSeats + "\nNumber of free seats: " + numberOfFreeSeats);
 	}
 
 	public int parseCharToInt(char row) {
