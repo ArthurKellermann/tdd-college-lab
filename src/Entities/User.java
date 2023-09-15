@@ -2,23 +2,16 @@ package Entities;
 
 public class User {
 
-	private String name;
-	private String email;
-	private String cpf;
+	private String name, email, cpf;
 	private Seat seat;
 
 	public User() {
 	}
 
-	public User(String name, String email, String cpf, Seat seat) {
+	public User(String name, String email, String cpf) {
 		setName(name);
 		setEmail(email);
 		setcpf(cpf);
-		setSeat(seat);
-	}
-
-	public boolean isInteger(String str) {
-		return str != null && str.matches("[0-9]*");
 	}
 
 	public boolean isCpf(String cpf) {
@@ -26,9 +19,9 @@ public class User {
 				|| cpf.equals("33333333333") || cpf.equals("44444444444") || cpf.equals("55555555555")
 				|| cpf.equals("66666666666") || cpf.equals("77777777777") || cpf.equals("88888888888")
 				|| cpf.equals("99999999999") || (cpf.length() != 11))
-			return (false);
-		
-		return isInteger(cpf);
+			return false;
+
+		return true;
 	}
 
 	public String getName() {
@@ -51,8 +44,14 @@ public class User {
 		return cpf;
 	}
 
-	public void setcpf(String cpf) {
+	public boolean setcpf(String cpf) {
+		if (isCpf(cpf) == false) {
+			return false;
+		}
+
 		this.cpf = cpf;
+
+		return true;
 	}
 
 	public Seat getSeat() {
@@ -61,6 +60,11 @@ public class User {
 
 	public void setSeat(Seat seat) {
 		this.seat = seat;
+	}
+
+	@Override
+	public String toString() {
+		return "User [name=" + name + ", email=" + email + ", cpf=" + cpf + ", seat=" + seat + "]";
 	}
 
 }

@@ -12,11 +12,9 @@ class TestUser {
 
 	@Test
 	void test() {
-		Seat seat = new Seat("A!", 20.00);
-		User user = new User("Pedro", "pedro@gmail.com", "05426366039", seat);
-		
+		User user = new User("Pedro", "pedro@gmail.com", "05426366039");
+
 		assertTrue(user.isCpf(user.getcpf()));
-		assertTrue(user.isInteger(user.getcpf()));
 		assertFalse(user.isCpf("11111111111"));
 		assertFalse(user.isCpf("A1111111111"));
 	}
