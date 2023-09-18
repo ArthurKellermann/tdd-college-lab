@@ -48,7 +48,7 @@ public class User {
 
 	public boolean setEmail(String email) {
 		if (isEmail(email) == false) {
-			throw new InputMismatchException("Invalid cpf");
+			throw new InputMismatchException("Invalid email");
 		}
 
 		this.email = email;
@@ -80,7 +80,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [name=" + name + ", email=" + email + ", cpf=" + cpf + ", seat=" + seat + "]";
+		return "Name: " + name + ", Email: " + email + ", CPF: " + cpf + ", Seat = " + seat;
 	}
 
 }

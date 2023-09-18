@@ -4,39 +4,42 @@ import java.util.InputMismatchException;
 
 public class Seat {
 
+	private String code;
 	private double price;
-	private String[] code;
+	private String[] codeArray;
 
 	public Seat() {
 	}
 
 	public Seat(String code, double price) {
-		this.code = code.split("");
+		this.codeArray = code.split("");
+		this.code = code;
 		setPrice(price);
 	}
 
 	public Seat(String code) {
-		this.code = code.split("");
+		this.codeArray = code.split("");
+		this.code = code;
 		setPrice(20.00);
 	}
 
 	public int getColumn() {
 		int column;
 
-		if (code.length == 3) {
-			column = Integer.parseInt(code[1] + code[2]);
+		if (codeArray.length == 3) {
+			column = Integer.parseInt(codeArray[1] + codeArray[2]);
 		} else {
-			column = Integer.parseInt(String.valueOf(code[1]));
+			column = Integer.parseInt(String.valueOf(codeArray[1]));
 		}
 
 		return column;
 	}
 
 	public char getRow() {
-		if (code != null && code.length > 0) {
-			return code[0].charAt(0);
+		if (codeArray != null && codeArray.length > 0) {
+			return codeArray[0].charAt(0);
 		} else {
-			throw new InputMismatchException("Seat code is empty.");
+			throw new InputMismatchException("Seat codeArray is empty.");
 		}
 	}
 
@@ -47,5 +50,12 @@ public class Seat {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+
+	@Override
+	public String toString() {
+		return "price: " + String.format("%.2f", price) + ", code: " + code + ".";
+	}
+	
+	
 
 }

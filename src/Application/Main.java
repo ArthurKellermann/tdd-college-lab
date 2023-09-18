@@ -14,7 +14,7 @@ public class Main {
 	public static void main(String[] args) {
 		User user = Main.registerUser();
 		menu(user);
-		
+
 		System.out.println("Thank you, " + user.getName());
 		in.close();
 	}
@@ -25,7 +25,7 @@ public class Main {
 		do {
 			System.out.println("Enter the next action: ");
 			System.out.println(
-					"1 - Select a seat\n2 - Delete a seat\n3 - List all seats\n4 - Show the number of free/occupied seats\n0 - Exit");
+					"1 - Select a seat\n2 - Delete a seat\n3 - List all seats\n4 - Show the number of free/occupied seats\n5 - Select a user by seat\n0 - Exit");
 			int option = in.nextInt();
 			in.nextLine();
 
@@ -48,6 +48,9 @@ public class Main {
 			case 4:
 				showNumberOfSeats();
 				break;
+			case 5: 
+				getUserBySeat();
+				break;
 			default:
 				System.out.println("Select a valid option");
 				break;
@@ -55,25 +58,29 @@ public class Main {
 
 		} while (count != 0);
 
-		
 		System.out.println();
-		
+
 		return;
 	}
 
 	private static User registerUser() {
 		System.out.println("...REGISTER...");
+		
+		User user = new User();
 
 		System.out.print("Name: ");
 		String name = in.nextLine();
+		user.setName(name);
 
 		System.out.print("Email: ");
 		String mail = in.nextLine();
+		user.setEmail(mail);
 
 		System.out.print("Cpf: ");
 		String cpf = in.nextLine();
+		user.setcpf(cpf);
 
-		return new User(name, mail, cpf);
+		return user;
 	}
 
 	private static void selectSeat(User user) {
@@ -136,4 +143,21 @@ public class Main {
 
 		return;
 	}
+
+	private static void getUserBySeat() {
+		System.out.print("Choose a seat: ");
+		String seatCode = in.nextLine();
+
+		Seat seat = new Seat(seatCode);
+
+		User user = cinema.getUserBySeat(seat);
+		
+		System.out.println(user);
+
+		System.out.println();
+
+		return;
+
+	}
+
 }

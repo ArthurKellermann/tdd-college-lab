@@ -1,5 +1,7 @@
 package Entities;
 
+import java.util.InputMismatchException;
+
 public class Cinema {
 
 	private static final int NUMBER_ROWS = 12;
@@ -53,6 +55,19 @@ public class Cinema {
 		}
 
 		return ("Number of occupied seats: " + numberOfOccupiedSeats + "\nNumber of free seats: " + numberOfFreeSeats);
+	}
+
+	public User getUserBySeat(Seat seat) {
+		int column = seat.getColumn();
+		int row = parseCharToInt(seat.getRow());
+
+		User user = seats[row][column - 1];
+
+		if (user == null) {
+			throw new InputMismatchException("User does not exists");
+		}
+
+		return user;
 	}
 
 	public int parseCharToInt(char row) {
