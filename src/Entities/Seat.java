@@ -1,6 +1,7 @@
-package Entities;
+package entities;
 
-import java.util.InputMismatchException;
+
+import exceptions.AppException;
 
 public class Seat {
 
@@ -11,6 +12,7 @@ public class Seat {
 	public Seat() {
 	}
 
+	
 	public Seat(String code, double price) {
 		this.codeArray = code.split("");
 		this.code = code;
@@ -36,11 +38,16 @@ public class Seat {
 	}
 
 	public char getRow() {
+		try {
 		if (codeArray != null && codeArray.length > 0) {
 			return codeArray[0].charAt(0);
 		} else {
-			throw new InputMismatchException("Seat codeArray is empty.");
+			throw new AppException("Seat code is empty.");
 		}
+		} catch (AppException e) {
+			System.err.println("Error: " + e);
+		}
+		return 0;
 	}
 
 	public double getPrice() {

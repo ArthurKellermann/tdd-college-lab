@@ -1,11 +1,11 @@
-package Test;
+package test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import Entities.Cinema;
-import Entities.User;
+import entities.Cinema;
+import entities.User;
 
 class TestCinema {
 

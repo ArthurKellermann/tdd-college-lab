@@ -1,12 +1,12 @@
-package Test;
+package test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import Entities.Seat;
-import Entities.User;
+import entities.Seat;
+import entities.User;
 
 class TestUser {
 

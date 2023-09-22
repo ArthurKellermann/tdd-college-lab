@@ -1,6 +1,6 @@
-package Entities;
+package entities;
 
-import java.util.InputMismatchException;
+import exceptions.AppException;
 
 public class User {
 
@@ -47,13 +47,19 @@ public class User {
 	}
 
 	public boolean setEmail(String email) {
-		if (isEmail(email) == false) {
-			throw new InputMismatchException("Invalid email");
+		try {
+			if (isEmail(email) == false) {
+				throw new AppException("Invalid email");
+			}
+
+			this.email = email;
+
+			return true;
+
+		} catch (AppException e) {
+			System.err.println("Error: " + e);
 		}
-
-		this.email = email;
-
-		return true;
+		return false;
 	}
 
 	public String getcpf() {
@@ -61,13 +67,19 @@ public class User {
 	}
 
 	public boolean setcpf(String cpf) {
-		if (isCpf(cpf) == false) {
-			throw new InputMismatchException("Invalid cpf");
+		try {
+			if (isCpf(cpf) == false) {
+				throw new AppException("Invalid cpf");
+			}
+
+			this.cpf = cpf;
+
+			return true;
+
+		} catch (AppException e) {
+			System.err.println("Error: " + e);
 		}
-
-		this.cpf = cpf;
-
-		return true;
+		return false;
 	}
 
 	public Seat getSeat() {

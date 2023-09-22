@@ -1,10 +1,10 @@
-package Application;
+package application;
 
 import java.util.Scanner;
 
-import Entities.Cinema;
-import Entities.Seat;
-import Entities.User;
+import entities.Cinema;
+import entities.Seat;
+import entities.User;
 
 public class Main {
 
@@ -152,6 +152,8 @@ public class Main {
 
 		User user = cinema.getUserBySeat(seat);
 		
+		System.out.println();
+		
 		System.out.println(user);
 
 		System.out.println();
@@ -159,5 +161,5 @@ public class Main {
 		return;
 
 	}
-
+ 
 }
