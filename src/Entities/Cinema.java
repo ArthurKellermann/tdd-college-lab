@@ -1,6 +1,6 @@
 package entities;
 
-import java.util.InputMismatchException;
+import exceptions.AppException;
 
 public class Cinema {
 
@@ -58,16 +58,22 @@ public class Cinema {
 	}
 
 	public User getUserBySeat(Seat seat) {
-		int column = seat.getColumn();
-		int row = parseCharToInt(seat.getRow());
+		try {
+			int column = seat.getColumn();
+			int row = parseCharToInt(seat.getRow());
 
-		User user = seats[row][column - 1];
+			User user = seats[row][column - 1];
 
-		if (user == null) {
-			throw new InputMismatchException("User does not exists");
+			if (user == null) {
+				throw new AppException("User does not exists");
+			}
+
+			return user;
+		} catch (AppException e) {
+			System.err.println("Error: " + e);
 		}
 
-		return user;
+		return null;
 	}
 
 	public int parseCharToInt(char row) {

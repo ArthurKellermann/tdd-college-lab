@@ -40,7 +40,7 @@ public class Main {
 				break;
 			case 2:
 				cinema.showSeats();
-				deleteSeat();
+				cancelSeat();
 				break;
 			case 3:
 				cinema.showSeats();
@@ -109,7 +109,7 @@ public class Main {
 		return;
 	}
 
-	private static void deleteSeat() {
+	private static void cancelSeat() {
 		String option;
 
 		do {
