@@ -1,6 +1,5 @@
 package entities;
 
-
 import exceptions.AppException;
 
 public class Seat {
@@ -12,7 +11,6 @@ public class Seat {
 	public Seat() {
 	}
 
-	
 	public Seat(String code, double price) {
 		this.codeArray = code.split("");
 		this.code = code;
@@ -39,11 +37,11 @@ public class Seat {
 
 	public char getRow() {
 		try {
-		if (codeArray != null && codeArray.length > 0) {
-			return codeArray[0].charAt(0);
-		} else {
-			throw new AppException("Seat code is empty.");
-		}
+			if (codeArray != null && codeArray.length > 0) {
+				return codeArray[0].charAt(0);
+			} else {
+				throw new AppException("Seat code is empty.");
+			}
 		} catch (AppException e) {
 			System.err.println("Error: " + e);
 		}
@@ -62,7 +60,5 @@ public class Seat {
 	public String toString() {
 		return "price: " + String.format("%.2f", price) + ", code: " + code + ".";
 	}
-	
-	
 
 }

@@ -78,7 +78,7 @@ public class Main {
 
 		System.out.print("Cpf: ");
 		String cpf = in.nextLine();
-		user.setcpf(cpf);
+		user.setCpf(cpf);
 
 		return user;
 	}

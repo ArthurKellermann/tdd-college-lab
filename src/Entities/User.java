@@ -13,7 +13,7 @@ public class User {
 	public User(String name, String email, String cpf) {
 		setName(name);
 		setEmail(email);
-		setcpf(cpf);
+		setCpf(cpf);
 	}
 
 	public boolean isCpf(String cpf) {
@@ -62,11 +62,11 @@ public class User {
 		return false;
 	}
 
-	public String getcpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public boolean setcpf(String cpf) {
+	public boolean setCpf(String cpf) {
 		try {
 			if (isCpf(cpf) == false) {
 				throw new AppException("Invalid cpf");
