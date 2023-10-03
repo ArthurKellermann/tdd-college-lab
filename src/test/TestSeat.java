@@ -2,13 +2,19 @@ package test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import entities.Seat;
 
 class TestSeat {
 
-	public Seat seat = new Seat("E7");
+	private Seat seat;
+	
+	@BeforeEach
+	public void setUp() {
+		seat = new Seat("E7");
+	}
 
 	// Should be able to return the row
 	@Test

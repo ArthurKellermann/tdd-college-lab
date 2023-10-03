@@ -3,6 +3,7 @@ package test;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import entities.Cinema;
@@ -11,8 +12,14 @@ import entities.User;
 
 class TestCinema {
 
-	public Cinema cinema = new Cinema();
-	public User user = new User("Arthur", "arthur@gmail.com", "92673845610");
+	private Cinema cinema;
+	private User user;
+
+	@BeforeEach
+	public void setUp() {
+		cinema = new Cinema();
+		user = new User("Arthur", "arthur@gmail.com", "92673845610");
+	}
 
 	// Should be able to select a seat
 	@Test
@@ -51,7 +58,7 @@ class TestCinema {
 		assertEquals(expectedString, numberOfSeats);
 	}
 
-	// Should be able to return a User related to a Seat
+	// Should be able to return a user by seat
 	@Test
 	void testGetUserBySeat() {
 		Seat seat = new Seat("K5");
@@ -59,15 +66,16 @@ class TestCinema {
 
 		cinema.selectSeat(seat.getRow(), seat.getColumn(), user);
 
-		User expectedUser = cinema.getUserBySeat(seat);
+		User newUser = cinema.getUserBySeat(seat);
 
-		assertEquals(expectedUser, user);
+		assertEquals(user, newUser);
 	}
 
-	// Should be able to return a integer
+	// Should be able to return a integer according to the number in the array
 	@Test
 	void testParseCharToIntMethod() {
-		assertEquals(cinema.parseCharToInt('B'), 1);
+		assertEquals(1, cinema.parseCharToInt('B'));
+		assertEquals(11, cinema.parseCharToInt('L'));
 	}
 
 }

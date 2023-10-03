@@ -3,15 +3,19 @@ package test;
 import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import entities.Cinema;
 import entities.User;
 
 class TestUser {
 
-	public Cinema cinema = new Cinema();
-	public User user = new User("Pedro", "pedro@gmail.com", "69267023453");
+	private User user;
+
+	@BeforeEach
+	public void setUp() {
+		user = new User("Pedro", "pedro@gmail.com", "69267023453");
+	}
 
 	// Should be able to return true if is a valid cpf
 	@Test
