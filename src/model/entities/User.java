@@ -1,6 +1,6 @@
-package entities;
+package model.entities;
 
-import exceptions.AppException;
+import model.exceptions.DomainException;
 
 public class User {
 
@@ -49,15 +49,15 @@ public class User {
 	public boolean setEmail(String email) {
 		try {
 			if (isEmail(email) == false) {
-				throw new AppException("Invalid email");
+				throw new DomainException("Invalid email");
 			}
 
 			this.email = email;
 
 			return true;
 
-		} catch (AppException e) {
-			System.err.println("Error: " + e);
+		} catch (DomainException e) {
+			System.err.println("Error: " + e.getMessage());
 		}
 		return false;
 	}
@@ -69,15 +69,15 @@ public class User {
 	public boolean setCpf(String cpf) {
 		try {
 			if (isCpf(cpf) == false) {
-				throw new AppException("Invalid cpf");
+				throw new DomainException("Invalid cpf");
 			}
 
 			this.cpf = cpf;
 
 			return true;
 
-		} catch (AppException e) {
-			System.err.println("Error: " + e);
+		} catch (DomainException e) {
+			System.err.println("Error: " + e.getMessage());
 		}
 		return false;
 	}

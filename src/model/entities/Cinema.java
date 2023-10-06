@@ -1,6 +1,6 @@
-package entities;
+package model.entities;
 
-import exceptions.AppException;
+import model.exceptions.DomainException;
 
 public class Cinema {
 
@@ -65,12 +65,12 @@ public class Cinema {
 			User user = seats[row][column - 1];
 
 			if (user == null) {
-				throw new AppException("User does not exists");
+				throw new DomainException("User does not exists");
 			}
 
 			return user;
-		} catch (AppException e) {
-			System.err.println("Error: " + e);
+		} catch (DomainException e) {
+			System.err.println("Error: " + e.getMessage());
 		}
 
 		return null;

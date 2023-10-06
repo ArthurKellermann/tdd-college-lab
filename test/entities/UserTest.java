@@ -1,4 +1,4 @@
-package test;
+package test.entities;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -6,9 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import entities.User;
+import model.entities.User;
 
-class TestUser {
+class UserTest {
 
 	private User user;
 

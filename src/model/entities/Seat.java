@@ -1,6 +1,6 @@
-package entities;
+package model.entities;
 
-import exceptions.AppException;
+import model.exceptions.DomainException;
 
 public class Seat {
 
@@ -40,10 +40,10 @@ public class Seat {
 			if (codeArray != null && codeArray.length > 0) {
 				return codeArray[0].charAt(0);
 			} else {
-				throw new AppException("Seat code is empty.");
+				throw new DomainException("Seat code is empty.");
 			}
-		} catch (AppException e) {
-			System.err.println("Error: " + e);
+		} catch (DomainException e) {
+			System.err.println("Error: " + e.getMessage());
 		}
 		return 0;
 	}

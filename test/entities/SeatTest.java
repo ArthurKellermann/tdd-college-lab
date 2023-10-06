@@ -1,13 +1,13 @@
-package test;
+package test.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import entities.Seat;
+import model.entities.Seat;
 
-class TestSeat {
+class SeatTest {
 
 	private Seat seat;
 	

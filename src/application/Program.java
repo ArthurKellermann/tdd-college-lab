@@ -2,21 +2,25 @@ package application;
 
 import java.util.Scanner;
 
-import entities.Cinema;
-import entities.Seat;
-import entities.User;
+import model.entities.Cinema;
+import model.entities.Seat;
+import model.entities.User;
 
-public class Main {
+public class Program {
 
 	private static Scanner in = new Scanner(System.in);
 	private static Cinema cinema = new Cinema();
 
 	public static void main(String[] args) {
-		User user = Main.registerUser();
-		menu(user);
+		try {
+			User user = Program.registerUser();
+			menu(user);
 
-		System.out.println("Thank you, " + user.getName());
-		in.close();
+			System.out.println("Thank you, " + user.getName());
+			in.close();
+		} catch (RuntimeException e) {
+			System.err.println("Unexpected error: " + e.getMessage());
+		}
 	}
 
 	private static void menu(User user) {
@@ -48,7 +52,7 @@ public class Main {
 			case 4:
 				showNumberOfSeats();
 				break;
-			case 5: 
+			case 5:
 				getUserBySeat();
 				break;
 			default:
@@ -65,7 +69,7 @@ public class Main {
 
 	private static User registerUser() {
 		System.out.println("...REGISTER...");
-		
+
 		User user = new User();
 
 		System.out.print("Name: ");
@@ -151,9 +155,9 @@ public class Main {
 		Seat seat = new Seat(seatCode);
 
 		User user = cinema.getUserBySeat(seat);
-		
+
 		System.out.println();
-		
+
 		System.out.println(user);
 
 		System.out.println();
@@ -161,5 +165,5 @@ public class Main {
 		return;
 
 	}
- 
+
 }

@@ -1,4 +1,4 @@
-package test;
+package test.entities;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -6,11 +6,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import entities.Cinema;
-import entities.Seat;
-import entities.User;
+import model.entities.Cinema;
+import model.entities.Seat;
+import model.entities.User;
 
-class TestCinema {
+class CinemaTest {
 
 	private Cinema cinema;
 	private User user;
