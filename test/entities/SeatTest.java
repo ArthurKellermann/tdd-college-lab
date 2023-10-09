@@ -1,4 +1,4 @@
-package test.entities;
+package entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
